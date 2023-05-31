@@ -32,6 +32,16 @@
   <dependencies>
     <dependency>
       <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-inject</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-validation</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-client</artifactId>
       <scope>compile</scope>
     </dependency>
@@ -42,12 +52,28 @@
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-jackson-databind</artifactId>
+      <artifactId>micronaut-runtime</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>jakarta.annotation</groupId>
-      <artifactId>jakarta.annotation-api</artifactId>
+      <groupId>io.micronaut.data</groupId>
+      <artifactId>micronaut-data-jdbc</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.liquibase</groupId>
+      <artifactId>micronaut-liquibase</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Logging config to forward logs -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.sql</groupId>
+      <artifactId>micronaut-jdbc-hikari</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -56,20 +82,17 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>io.micronaut.test</groupId>
-      <artifactId>micronaut-test-junit5</artifactId>
-      <scope>test</scope>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.micronaut.views/micronaut-views-core -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
+      <groupId>io.micronaut.views</groupId>
+      <artifactId>micronaut-views-core</artifactId>
+      <version>3.8.2</version>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
+
   </dependencies>
 
   <build>
@@ -86,13 +109,28 @@
           <!-- Uncomment to enable incremental compilation -->
           <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
 
-          <annotationProcessorPaths combine.children="append">
+<!--          <annotationProcessorPaths combine.children="append">-->
+<!--            <path>-->
+<!--              <groupId>io.micronaut</groupId>-->
+<!--              <artifactId>micronaut-http-validation</artifactId>-->
+<!--              <version>${micronaut.version}</version>-->
+<!--                          <path>-->
+<!--                            <groupId>io.micronaut.data</groupId>-->
+<!--                            <artifactId>micronaut-data-processor</artifactId>-->
+<!--                            <version>${micronaut.version}</version>-->
+<!--                          </path>-->
+<!--            </path>-->
+<!--          </annotationProcessorPaths>-->
+
+          <annotationProcessorPaths
+                  combine.children="append">
             <path>
-              <groupId>io.micronaut</groupId>
-              <artifactId>micronaut-http-validation</artifactId>
+              <groupId>io.micronaut.data</groupId>
+              <artifactId>micronaut-data-processor</artifactId>
               <version>${micronaut.version}</version>
             </path>
           </annotationProcessorPaths>
+
           <compilerArgs>
             <arg>-Amicronaut.processing.group=com.example</arg>
             <arg>-Amicronaut.processing.module=balance</arg>

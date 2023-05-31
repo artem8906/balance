@@ -5,3 +5,10 @@ netty:
   default:
     allocator:
       max-order: 3
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/balance
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+    dialect: MYSQL
