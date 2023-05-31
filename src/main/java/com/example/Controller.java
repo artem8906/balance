@@ -12,17 +12,25 @@ import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @Singleton
-@io.micronaut.http.annotation.Controller
+@io.micronaut.http.annotation.Controller()
+
 public class Controller {
 
     @Inject
     DataService dataService;
 
 
-    @Get()
-    @View("main")
-    public MutableHttpResponse<Balance> main() {
+    @Get("/")
+    @View("log")
+    public ModelAndView modelAndView() {
 
-        return HttpResponse.ok(dataService.repository.getLast().get());
+//        return HttpResponse.ok(dataService.repository.getLast().get());
+            //return view and model
+        Balance balance = dataService.repository.getLast().get();
+
+            return new ModelAndView("log", balance);
+
     }
+
+
 }

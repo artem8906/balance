@@ -101,7 +101,7 @@
         <groupId>io.micronaut.build</groupId>
         <artifactId>micronaut-maven-plugin</artifactId>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -109,18 +109,18 @@
           <!-- Uncomment to enable incremental compilation -->
           <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
 
-<!--          <annotationProcessorPaths combine.children="append">-->
-<!--            <path>-->
-<!--              <groupId>io.micronaut</groupId>-->
-<!--              <artifactId>micronaut-http-validation</artifactId>-->
-<!--              <version>${micronaut.version}</version>-->
-<!--                          <path>-->
-<!--                            <groupId>io.micronaut.data</groupId>-->
-<!--                            <artifactId>micronaut-data-processor</artifactId>-->
-<!--                            <version>${micronaut.version}</version>-->
-<!--                          </path>-->
-<!--            </path>-->
-<!--          </annotationProcessorPaths>-->
+          <!--          <annotationProcessorPaths combine.children="append">-->
+          <!--            <path>-->
+          <!--              <groupId>io.micronaut</groupId>-->
+          <!--              <artifactId>micronaut-http-validation</artifactId>-->
+          <!--              <version>${micronaut.version}</version>-->
+          <!--                          <path>-->
+          <!--                            <groupId>io.micronaut.data</groupId>-->
+          <!--                            <artifactId>micronaut-data-processor</artifactId>-->
+          <!--                            <version>${micronaut.version}</version>-->
+          <!--                          </path>-->
+          <!--            </path>-->
+          <!--          </annotationProcessorPaths>-->
 
           <annotationProcessorPaths
                   combine.children="append">
