@@ -16,9 +16,13 @@ public class Balance {
     private final Date day;
     private final float balance;
 
-    public Balance(float balance) {
-        this.day = new Date();
-        this.balance = balance;
+//    public Balance(float balance) {
+//        this.day = new Date();
+//        this.balance = balance;
+//    }
+
+    public Date getDay() {
+        return day;
     }
 
     public long getId() {
