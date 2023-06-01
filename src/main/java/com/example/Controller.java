@@ -44,9 +44,11 @@ public class Controller {
                 "    Balance is " + balance.getBalance() + " EUR on date " + sdf.format(balance.getDate()) + ".\n" +
                 "Current exchange rate is NUMBER + 5% for transfer" + "\n" +
                 "</div>\n" +
-                "<input id=\"numb\" type=\"number\"> <button type=\"button\" onclick=\"myFunction()\">Calculate</button>" + "\n" +
+                "<input id=\"numb\" type=\"number\" placeholder=\"Type amount EUR\"> <button type=\"button\" onclick=\"myFunction()\">Calculate</button>" + "\n" +
                 "<p id=\"demo\"></p>" + "\n" +
-                "<script> function myFunction() { let x = document.getElementById(\"numb\").value; let text; if (isNaN(x) || x < 1 || x > 10) { text = \"Input not valid\";} else { text = \"Input OK\";}document.getElementById(\"demo\").innerHTML = text;} </script>\n" +
+                "<script> function myFunction() { let x = document.getElementById(\"numb\").value; let text; if (isNaN(x) || x<=0) { text = \"Input not valid\";} else {" +
+                " text = x * " + rate * 1.05 +"\n" +
+                ";}document.getElementById(\"demo\").innerHTML = text;} </script>\n" +
                 "</body>\n" +
                 "</html>";
     }
