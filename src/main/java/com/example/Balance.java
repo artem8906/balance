@@ -1,9 +1,11 @@
 package com.example;
 
 import io.micronaut.aop.InterceptorBindingDefinitions;
+import io.micronaut.data.annotation.DataTransformer;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.jdbc.annotation.ColumnTransformer;
 
 import java.util.Date;
 
@@ -13,16 +15,13 @@ public class Balance {
     @Id
     @GeneratedValue
     private long id;
-    private final Date day;
+
+    private final Date date;
     private final float balance;
 
-//    public Balance(float balance) {
-//        this.day = new Date();
-//        this.balance = balance;
-//    }
 
     public Date getDay() {
-        return day;
+        return date;
     }
 
     public long getId() {
@@ -34,14 +33,19 @@ public class Balance {
     }
 
 
-    public Balance(long id, Date day, float balance) {
+    public Balance(long id, Date date, float balance) {
         this.id = id;
-        this.day = day;
+        this.date = date;
+        this.balance = balance;
+    }
+
+    public Balance(Date date, float balance) {
+        this.date = date;
         this.balance = balance;
     }
 
     public Date getDate() {
-        return day;
+        return date;
     }
 
     public float getBalance() {

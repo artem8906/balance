@@ -87,17 +87,30 @@
       <scope>runtime</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/io.micronaut.views/micronaut-views-core -->
-    <dependency>
-      <groupId>io.micronaut.views</groupId>
-      <artifactId>micronaut-views-core</artifactId>
-      <version>3.8.2</version>
-    </dependency>
+
 
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20160810</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.micronaut.security/micronaut-security -->
+    <dependency>
+      <groupId>io.micronaut.security</groupId>
+      <artifactId>micronaut-security</artifactId>
+      <version>3.11.0</version>
+    </dependency>
+
+
+
+
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
+      <version>3.4.16</version>
+    </dependency>
+
+
 
   </dependencies>
 
@@ -135,6 +148,11 @@
               <artifactId>micronaut-data-processor</artifactId>
               <version>${micronaut.version}</version>
             </path>
+            <path>
+              <groupId>io.micronaut.security</groupId>
+              <artifactId>micronaut-security</artifactId>
+              <version>3.11.0</version>
+            </path>
           </annotationProcessorPaths>
 
           <compilerArgs>
@@ -143,7 +161,23 @@
           </compilerArgs>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>
+                com.intro.PropertyPartnerApplication
+              </mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
 
 </project>
