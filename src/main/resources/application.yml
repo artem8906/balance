@@ -1,6 +1,14 @@
 micronaut:
   application:
     name: balance
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
 netty:
   default:
     allocator:
@@ -10,7 +18,7 @@ datasources:
     url: jdbc:mysql://localhost:3306/balance
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
-    password: 123
+    password: Rurik123Rems
     dialect: MYSQL
 views:
     #thymeleaf properties (thymeleaf is enabled by default; just to make sure)

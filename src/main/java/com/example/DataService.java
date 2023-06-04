@@ -2,6 +2,8 @@ package com.example;
 
 import jakarta.inject.Inject;
 
+import java.util.Date;
+
 public class DataService {
 
     @Inject
@@ -17,9 +19,11 @@ public class DataService {
         }
 
         return lastBalance;
-
-
-
     }
+
+    public void addBalance(float amount) {
+        repository.save(new Balance(new Date(), amount));
+    }
+
 
 }
