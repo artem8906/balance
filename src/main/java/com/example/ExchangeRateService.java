@@ -1,5 +1,6 @@
 package com.example;
 
+import io.micronaut.context.annotation.Value;
 import jakarta.inject.Singleton;
 import org.json.JSONObject;
 
@@ -13,8 +14,8 @@ import java.util.regex.Pattern;
 
 @Singleton
 public class ExchangeRateService {
-
-    private final String URL = "http://data.fixer.io/api/latest?access_key=6cb34ef14beb2ad5c1dcc06c69d814d4";
+    @Value("${micronaut.application.rateservice}")
+    private String URL;
 
     public double getRateEUR_RUB() throws IOException {
         InputStream is = new URL(URL).openStream();

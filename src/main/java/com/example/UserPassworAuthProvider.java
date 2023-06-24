@@ -1,5 +1,6 @@
 package com.example;
 
+import io.micronaut.context.annotation.Value;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.security.authentication.*;
@@ -15,9 +16,11 @@ import reactor.core.publisher.FluxSink;
 @Singleton
 public class UserPassworAuthProvider implements AuthenticationProvider {
 
-//        @Inject
-//        UserStore store;
+    @Value("${micronaut.security.login}")
+    private String login;
 
+    @Value("${micronaut.security.password}")
+    private String password;
 
 
     @Override
@@ -32,7 +35,7 @@ public class UserPassworAuthProvider implements AuthenticationProvider {
         }, FluxSink.OverflowStrategy.ERROR);
     }
     private boolean isValid(AuthenticationRequest<?, ?> req) {
-        return "srzaev".equals(req.getIdentity()) && "7351355@mail.ru".equals(req.getSecret());
+        return login.equals(req.getIdentity()) && password.equals(req.getSecret());
     }
 }
 
