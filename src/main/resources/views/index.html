@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!--Title-->
-    <title>First Micronaut App with Thymeleaf</title>
+    <title>Home</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
+<body>
 
-<tbody>
-<!--Headlines-->
-<h1>First Micronaut App with Thymeleaf</h1>
-<h3>List of persons:</h3>
+<div><h2>
+    Balance is <span th:text="${balance}"></span> EUR.
+    Current exchange rate is <span th:text="${rate}"></span> + 5% for transfer
+    </h2>
+</div>
+<input id="numb" type="number" placeholder="Type amount EUR"> <button type="button" onclick="myFunction()">Calculate</button>
+<p id="demo"></p>
+<script th:inline="javascript"> function myFunction() {
+ let x = document.getElementById("numb").value;
+ let rate = [[${rate}]];
+ let text;
+ if (isNaN(x) || x<=0) {
+  text = "Input not valid";}
+  else {text = x * rate * 1.05;}
+document.getElementById("demo").innerHTML = Math.round(Number(text));}
+</script>
+<div>
+    <table class="scores">
+        <caption><h3>Last 10 transactions</h3></caption>
+        <th>Number</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Balance after</th>
 
-<!--Display the list-->
-<ul>
-    <div th:if="${persons.empty}">
-        <td> No Persons Available </td>
-    </div>
-    <div th:unless="${persons.empty}">
-        <th:block th:each="person : ${persons}">
-            <li>
-                <span th:text="${person.name}"> name </span>
-            </li>
-        </th:block>
-    </div>
-</ul>
-</tbody>
-
+        <tr th:each="operation: ${operations}">
+            <td th:text="${operation.getId()}">
+            <td th:text="${operation.getDate()}">
+            <td th:text="${operation.getAmount()}">
+            <td th:text="${operation.getBalance()}">
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
 </html>

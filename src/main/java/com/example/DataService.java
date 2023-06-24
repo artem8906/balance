@@ -1,28 +1,22 @@
 package com.example;
 
 import jakarta.inject.Inject;
-
+import javax.transaction.Transactional;
 import java.util.Date;
-
+import java.util.List;
 public class DataService {
 
     @Inject
-    BalanceRepository repository;
+    OperationRepository repository;
 
-    public Balance getLastBalance() {
-        Balance lastBalance = null;
-        try {
-            lastBalance = repository.getLast().orElseThrow(Exception::new);
-        }
-        catch (Exception e) {
-            System.out.println("Nothing to render. Table is empty");
-        }
-
-        return lastBalance;
+    @Transactional
+    public void addOperation(float amount) {
+        float balance = repository.getBalance().orElse(new Operation(0.00f)).getBalance();
+        repository.addOperation(new Date(), amount, balance + amount);
     }
 
-    public void addBalance(float amount) {
-        repository.save(new Balance(new Date(), amount));
+    public List<Operation> get10LastOperation() {
+        return repository.get10Last();
     }
 
 

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>balance</artifactId>
-  <version>0.1</version>
+  <version>0.3</version>
   <packaging>${packaging}</packaging>
 
   <parent>
@@ -101,6 +101,11 @@
       <version>3.11.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>io.micronaut.views</groupId>
+      <artifactId>micronaut-views-thymeleaf</artifactId>
+    </dependency>
+
 
 
 
@@ -157,7 +162,7 @@
 
           <compilerArgs>
             <arg>-Amicronaut.processing.group=com.example</arg>
-            <arg>-Amicronaut.processing.module=balance</arg>
+            <arg>-Amicronaut.processing.module=operation</arg>
           </compilerArgs>
         </configuration>
       </plugin>

@@ -15,7 +15,8 @@ netty:
       max-order: 3
 datasources:
   default:
-    url: jdbc:mysql://localhost:3306/balance
+    url: jdbc:mysql://balance.co1tlyp5pr7f.eu-north-1.rds.amazonaws.com:3306/balance
+#    url: jdbc:mysql://localhost:3306/balance
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: Rurik123Rems

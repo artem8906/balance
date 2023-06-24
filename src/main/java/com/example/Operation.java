@@ -1,27 +1,46 @@
 package com.example;
 
-import io.micronaut.aop.InterceptorBindingDefinitions;
-import io.micronaut.data.annotation.DataTransformer;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
-import io.micronaut.data.jdbc.annotation.ColumnTransformer;
 
 import java.util.Date;
 
-@MappedEntity(value = "balance")
-public class Balance {
+@MappedEntity(value = "operation")
+public class Operation {
 
     @Id
     @GeneratedValue
     private long id;
 
     private final Date date;
+    private final float amount;
     private final float balance;
 
+    public Operation(long id, Date date, float amount, float balance) {
+        this.id = id;
+        this.date = date;
+        this.amount = amount;
+        this.balance = balance;
+    }
 
-    public Date getDay() {
+
+    public Operation(float balance) {
+        this.balance = balance;
+        amount = 0.00f;
+        date = new Date();
+    }
+
+    public Date getDate() {
         return date;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public float getBalance() {
+        return balance;
     }
 
     public long getId() {
@@ -30,25 +49,5 @@ public class Balance {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-
-    public Balance(long id, Date date, float balance) {
-        this.id = id;
-        this.date = date;
-        this.balance = balance;
-    }
-
-    public Balance(Date date, float balance) {
-        this.date = date;
-        this.balance = balance;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public float getBalance() {
-        return balance;
     }
 }

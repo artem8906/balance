@@ -1,15 +1,19 @@
-DROP DATABASE IF EXISTS `balance`;
-CREATE DATABASE `balance`;
+-- DROP DATABASE IF EXISTS `balance`;
+-- CREATE DATABASE `balance`;
 USE `balance`;
 
-CREATE TABLE `balance`
+CREATE TABLE `operation`
 (
     `id`           bigint(10) NOT NULL AUTO_INCREMENT,
-    `balance`      float(20)        DEFAULT NULL,
+    `amount`      float(20)        DEFAULT NULL,
     `date`         DATE             DEFAULT NULL,
+    `balance`      float(20)        DEFAULT NULL,
     PRIMARY KEY (`id`)
 );
 
-INSERT INTO balance (balance, DATE) VALUES (312.99, "2023-05-29");
+INSERT INTO operation (amount, date, balance) VALUES (-35.50, "2023-06-23", 602.06);
+INSERT INTO operation (amount, date, balance) VALUES (-18.16, "2023-06-23", 566.56);
+INSERT INTO operation (amount, date, balance) VALUES (-10.30, "2023-06-23", 548.40);
 
-SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='balance' AND `TABLE_NAME`='balance';
+
+
