@@ -1,6 +1,6 @@
-This application was made for learning Micronaut, but it is not useless.
-One person use it and it has these functionalities: 
-1) shows actual balance of bank account
+This application was made for learning Micronaut.
+It has these functionalities: 
+1) shows actual balance of one bank account
 2) shows actual exchange rate EUR/RUB
 3) calculate amount of rubles needed to be exchange based on amount of EUR which user puts in the form
 4) shows last 10 operations connected with these account
